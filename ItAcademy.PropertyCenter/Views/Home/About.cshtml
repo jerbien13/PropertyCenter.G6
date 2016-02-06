@@ -1,0 +1,20 @@
+﻿@model IEnumerable<ItAcademy.PropertyCenter.Entities.Announcement>
+
+@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+
+<h4>Liste des annonces</h4>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.Title</li>
+    }
+</ul>
+
+
+
+<p>Use this area to provide additional information.</p>

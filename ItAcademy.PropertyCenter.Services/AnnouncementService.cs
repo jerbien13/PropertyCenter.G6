@@ -10,5 +10,12 @@ namespace ItAcademy.PropertyCenter.Services
         {
             return UnitOfWork.Announcements.GetAll();
         }
+
+        public void AddAnnouncement(Announcement announcement)
+        {
+            UnitOfWork.Announcements.Insert(announcement);
+
+            UnitOfWork.Commit();
+        }
     }
 }

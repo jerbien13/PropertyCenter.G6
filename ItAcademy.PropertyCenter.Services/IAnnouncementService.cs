@@ -8,5 +8,6 @@ namespace ItAcademy.PropertyCenter.Services
     {
         ICollection<Announcement> GetAnnouncements();
 
+        void AddAnnouncement(Announcement announcement);
     }
 }

@@ -1,5 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using ItAcademy.PropertyCenter.Filters;
+using ItAcademy.PropertyCenter.Models;
 using ItAcademy.PropertyCenter.Services;
 using Microsoft.Practices.Unity;
 
@@ -15,17 +17,20 @@ namespace ItAcademy.PropertyCenter.Controllers
             return View();
         }
 
+        //[HandleError(ExceptionType = typeof(ArgumentNullException), View = "AboutError")]
         public ActionResult About()
         {
+            //throw new NullReferenceException("Ceci est un message de test");
             ViewBag.Message = "Your application description page.";
 
             var announcements = AnnouncementService.GetAnnouncements();
-
+            
             return View(announcements);
         }
 
         public ActionResult Contact()
         {
+            //throw new ArgumentNullException();
             ViewBag.Message = "Your contact page.";
 
             return View();

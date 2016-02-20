@@ -51,12 +51,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgencyRepository.cs" />
     <Compile Include="AnnouncementRepository.cs" />
+    <Compile Include="AnnouncementTypeRepository.cs" />
     <Compile Include="Contracts\GenericRepository.cs" />
     <Compile Include="Contracts\IPersistRepository.cs" />
     <Compile Include="Contracts\IReadOnlyRepository.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
+    <Compile Include="IAgencyRepository.cs" />
     <Compile Include="IAnnouncementRepository.cs" />
+    <Compile Include="IAnnouncementTypeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>

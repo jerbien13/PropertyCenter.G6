@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
+using ItAcademy.PropertyCenter.Core.Logging;
 using ItAcademy.PropertyCenter.Filters;
 using ItAcademy.PropertyCenter.Models;
 using ItAcademy.PropertyCenter.Services;
@@ -11,6 +12,13 @@ namespace ItAcademy.PropertyCenter.Controllers
     {
         [Dependency]
         public IAnnouncementService AnnouncementService { private get; set; }
+
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            SiteEventSource.Log.PageError(filterContext.Exception.GetBaseException().Message);
+
+            base.OnException(filterContext);
+        }
 
         public ActionResult Index()
         {
@@ -24,7 +32,7 @@ namespace ItAcademy.PropertyCenter.Controllers
             ViewBag.Message = "Your application description page.";
 
             var announcements = AnnouncementService.GetAnnouncements();
-            
+
             return View(announcements);
         }
 

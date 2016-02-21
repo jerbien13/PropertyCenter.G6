@@ -65,6 +65,10 @@
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ItAcademy.PropertyCenter.Core\ItAcademy.PropertyCenter.Core.csproj">
+      <Project>{E016BDEB-F3ED-4D58-B4DA-DC26470B416B}</Project>
+      <Name>ItAcademy.PropertyCenter.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ItAcademy.PropertyCenter.Entities\ItAcademy.PropertyCenter.Entities.csproj">
       <Project>{5FCB6B6C-A0A4-4EF8-9313-8DABAE80CED1}</Project>
       <Name>ItAcademy.PropertyCenter.Entities</Name>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using ItAcademy.PropertyCenter.Core.Logging;
 using ItAcademy.PropertyCenter.Entities.Core;
 
 namespace ItAcademy.PropertyCenter.Repository.Contracts
@@ -24,22 +25,57 @@ namespace ItAcademy.PropertyCenter.Repository.Contracts
 
         public T GetById(int id)
         {
-            return entitySet.Find(id);
+            try
+            {
+                return entitySet.Find(id);
+            }
+            catch (Exception ex)
+            {
+                DomainEventSource.Log.Error(ex.GetBaseException().Message);
+                return null;
+            }
         }
 
         public ICollection<T> GetAll()
         {
-            return entitySet.ToList();
+            try
+            {
+                return entitySet.ToList();
+            }
+            catch (Exception ex)
+            {
+                DomainEventSource.Log.Error(ex.GetBaseException().Message);
+                return null;
+            }
         }
 
         public ICollection<T> Query(Expression<Func<T, bool>> predicate)
         {
-            return entitySet.Where(predicate).ToList();
+            try
+            {
+                return entitySet.Where(predicate).ToList();
+            }
+            catch (Exception ex)
+            {
+                DomainEventSource.Log.Error(ex.GetBaseException().Message);
+                return Enumerable.Empty<T>().ToList();
+            }
         }
 
         public void Insert(T entity)
         {
-            entitySet.Add(entity);
+            try
+            {
+                entitySet.Add(entity);
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+            {
+                DomainEventSource.Log.DbValidationError(ex.GetBaseException().Message);
+            }
+            catch (Exception ex)
+            {
+                DomainEventSource.Log.Error(ex.GetBaseException().Message);
+            }
         }
 
         public void Update(T entity)

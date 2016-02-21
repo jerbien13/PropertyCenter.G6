@@ -7,6 +7,10 @@ namespace ItAcademy.PropertyCenter.Repository.Contracts
     {
         IAnnouncementRepository Announcements { get; }
 
+        IAgencyRepository Agencies { get; }
+
+        IAnnouncementTypeRepository AnnouncementTypes { get; }
+
         void Commit();
     }
 }

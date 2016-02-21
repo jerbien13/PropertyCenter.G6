@@ -24,10 +24,12 @@ namespace ItAcademy.PropertyCenter.Entities
         [Required]
         public bool IsAvailable { get; set; }
 
+        [Display(Name = "Agency")]
         public int AgencyId { get; set; }
 
         public virtual Agency Agency { get; set; }
 
+        [Display(Name = "Announcement type")]
         public int AnnouncementTypeId { get; set; }
 
         public virtual AnnouncementType AnnouncementType { get; set; }

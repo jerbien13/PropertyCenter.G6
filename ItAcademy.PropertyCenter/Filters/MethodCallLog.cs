@@ -1,6 +1,7 @@
 ﻿
 using System.Diagnostics;
 using System.Web.Mvc;
+using ItAcademy.PropertyCenter.Core.Logging;
 
 namespace ItAcademy.PropertyCenter.Filters
 {
@@ -20,7 +21,9 @@ namespace ItAcademy.PropertyCenter.Filters
         {
             sw.Stop();
 
-            Debug.WriteLine("{0} elaped : {1} ms", methodName, sw.ElapsedMilliseconds);
+            //Debug.WriteLine("{0} elaped : {1} ms", methodName, sw.ElapsedMilliseconds);
+
+            SiteEventSource.Log.ControllerInfo(string.Format("{0} elaped : {1} ms", methodName, sw.ElapsedMilliseconds));
         }
     }
 }

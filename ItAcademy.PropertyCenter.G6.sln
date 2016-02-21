@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItAcademy.PropertyCenter", "ItAcademy.PropertyCenter\ItAcademy.PropertyCenter.csproj", "{1684C8AC-9F7C-41D0-8392-E5D2BE60E44B}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItAcademy.PropertyCenter.Repository", "ItAcademy.PropertyCenter.Repository\ItAcademy.PropertyCenter.Repository.csproj", "{8258B5D7-40E6-492D-9D28-F99E266F9F2A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItAcademy.PropertyCenter.Services", "ItAcademy.PropertyCenter.Services\ItAcademy.PropertyCenter.Services.csproj", "{9F67CB17-4BFA-4D88-941C-5B50CB5FD4F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItAcademy.PropertyCenter.Core", "ItAcademy.PropertyCenter.Core\ItAcademy.PropertyCenter.Core.csproj", "{E016BDEB-F3ED-4D58-B4DA-DC26470B416B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{9F67CB17-4BFA-4D88-941C-5B50CB5FD4F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F67CB17-4BFA-4D88-941C-5B50CB5FD4F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F67CB17-4BFA-4D88-941C-5B50CB5FD4F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E016BDEB-F3ED-4D58-B4DA-DC26470B416B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E016BDEB-F3ED-4D58-B4DA-DC26470B416B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E016BDEB-F3ED-4D58-B4DA-DC26470B416B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E016BDEB-F3ED-4D58-B4DA-DC26470B416B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

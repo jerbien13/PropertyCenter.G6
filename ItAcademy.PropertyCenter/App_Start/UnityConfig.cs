@@ -44,6 +44,8 @@ namespace ItAcademy.PropertyCenter
             container.RegisterType<DbContext, PropertyCenterDbContext>();
             container.RegisterType<IUnitOfWork, UnitOfWork>();
             container.RegisterType<IAnnouncementService, AnnouncementService>();
+            container.RegisterType<IAgencyService, AgencyService>();
+            container.RegisterType<IAnnouncementTypeService, AnnouncementTypeService>();
         }
     }
 }

@@ -22,7 +22,25 @@ namespace ItAcademy.PropertyCenter.Repository
             }
         }
 
+        public IAgencyRepository Agencies
+        {
+            get
+            {
+                return agencies ?? (agencies = new AgencyRepository(context));
+            }
+        }
+
+        public IAnnouncementTypeRepository AnnouncementTypes
+        {
+            get
+            {
+                return announcementTypes ?? (announcementTypes = new AnnouncementTypeRepository(context));
+            }
+        }
+
         private bool disposed = false;
+        private IAgencyRepository agencies;
+        private IAnnouncementTypeRepository announcementTypes;
 
         protected virtual void Dispose(bool disposing)
         {

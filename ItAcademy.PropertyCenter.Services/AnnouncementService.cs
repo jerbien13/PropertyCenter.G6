@@ -10,10 +10,21 @@ namespace ItAcademy.PropertyCenter.Services
         {
             return UnitOfWork.Announcements.GetAll();
         }
+        public Announcement GetAnnouncementById(int id)
+        {
+            return UnitOfWork.Announcements.GetById(id);
+        }
 
         public void AddAnnouncement(Announcement announcement)
         {
             UnitOfWork.Announcements.Insert(announcement);
+
+            UnitOfWork.Commit();
+        }
+
+        public void UpdateAnnouncement(Announcement announcement)
+        {
+            UnitOfWork.Announcements.Update(announcement);
 
             UnitOfWork.Commit();
         }

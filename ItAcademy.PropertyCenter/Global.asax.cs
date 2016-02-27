@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using ItAcademy.PropertyCenter.App_Start;
 
 namespace ItAcademy.PropertyCenter
 {
@@ -12,6 +13,7 @@ namespace ItAcademy.PropertyCenter
     {
         protected void Application_Start()
         {
+            LoggingConfig.Configure();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

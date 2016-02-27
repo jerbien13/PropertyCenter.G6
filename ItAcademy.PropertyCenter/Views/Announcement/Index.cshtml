@@ -1,25 +1,30 @@
-﻿
+﻿@model IEnumerable<ItAcademy.PropertyCenter.Entities.Announcement>
+
 @{
     ViewBag.Title = "Liste d'annonces";
 }
 
 <h2>@ViewBag.Title</h2>
 
-<table class="table table-hover">
-    <tr>
-        <th>Title</th>
-        <th>Ref</th>
-        <th>Description</th>
-    </tr>
-    @foreach (var item in Model)
-    {
+<div>
+    @Html.ActionLink("Créer", "Create");
+</div>
+<div>
+    <table class="table table-hover">
         <tr>
-            <td>@item.Title</td>
-            <td>@item.Reference</td>
-            <td>@item.Description</td>
+            <th>Title</th>
+            <th>Ref</th>
+            <th>Description</th>
+            <th></th>
         </tr>
-    }
-</table>
-
-
-
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Reference</td>
+                <td>@item.Description</td>
+                <td>@Html.ActionLink("Edit", "Edit", "Announcement", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-default" })</td>
+            </tr>
+        }
+    </table>
+</div>

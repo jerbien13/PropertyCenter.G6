@@ -33,8 +33,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ItAcademy.PropertyCenter.Services.Fakes">
+      <HintPath>FakesAssemblies\ItAcademy.PropertyCenter.Services.Fakes.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Moq, Version=4.0.10827.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.Contrib.0.3\lib\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Moq.Contrib, Version=0.1.3802.36788, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.Contrib.0.3\lib\Moq.Contrib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -82,6 +96,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fakes\FakeAnnouncementService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
@@ -89,9 +104,22 @@
     <Content Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Fakes Include="Fakes\ItAcademy.PropertyCenter.Services.fakes" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ItAcademy.PropertyCenter.Entities\ItAcademy.PropertyCenter.Entities.csproj">
+      <Project>{5FCB6B6C-A0A4-4EF8-9313-8DABAE80CED1}</Project>
+      <Name>ItAcademy.PropertyCenter.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ItAcademy.PropertyCenter.Repository\ItAcademy.PropertyCenter.Repository.csproj">
+      <Project>{8258B5D7-40E6-492D-9D28-F99E266F9F2A}</Project>
+      <Name>ItAcademy.PropertyCenter.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ItAcademy.PropertyCenter.Services\ItAcademy.PropertyCenter.Services.csproj">
+      <Project>{9F67CB17-4BFA-4D88-941C-5B50CB5FD4F6}</Project>
+      <Name>ItAcademy.PropertyCenter.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ItAcademy.PropertyCenter\ItAcademy.PropertyCenter.csproj">
       <Project>{1684C8AC-9F7C-41D0-8392-E5D2BE60E44B}</Project>
       <Name>ItAcademy.PropertyCenter</Name>

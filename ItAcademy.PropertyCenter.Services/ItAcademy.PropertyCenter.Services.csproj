@@ -58,9 +58,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgencyService.cs" />
+    <Compile Include="AnnouncementTypeService.cs" />
     <Compile Include="AnnouncementService.cs" />
     <Compile Include="Contracts\IServiceBase.cs" />
     <Compile Include="Contracts\ServiceBase.cs" />
+    <Compile Include="IAgencyService.cs" />
+    <Compile Include="IAnnouncementTypeService.cs" />
     <Compile Include="IAnnouncementService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

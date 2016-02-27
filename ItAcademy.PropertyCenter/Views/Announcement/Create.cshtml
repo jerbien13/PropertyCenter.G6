@@ -1,0 +1,18 @@
+﻿@model ItAcademy.PropertyCenter.Entities.Announcement
+
+@{
+    ViewBag.Title = "Create Announcement";
+}
+
+@using (Html.BeginForm("Create", "Announcement", FormMethod.Post))
+{
+    @Html.Partial("_AddEditAnnouncement")
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

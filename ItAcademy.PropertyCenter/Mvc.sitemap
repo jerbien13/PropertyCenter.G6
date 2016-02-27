@@ -7,7 +7,7 @@
     <mvcSiteMapNode title="About" controller="Home" action="About"/>
     <mvcSiteMapNode title="Contact" controller="Home" action="Contact"/>
     <mvcSiteMapNode title="Administration" clickable="false">
-      <mvcSiteMapNode title="Agencies" controller="Agencies" action="Index" />
+      <mvcSiteMapNode title="Agencies" controller="Agency" action="Index" />
       <mvcSiteMapNode title="Announcements" controller="Announcement" action="Index" />
     </mvcSiteMapNode>
   </mvcSiteMapNode>

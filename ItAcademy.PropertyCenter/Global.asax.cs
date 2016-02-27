@@ -14,10 +14,12 @@ namespace ItAcademy.PropertyCenter
         protected void Application_Start()
         {
             LoggingConfig.Configure();
+            DeviceConfig.ConfigureDisplayMode();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            BundleMobileConfig.RegisterBundles(BundleTable.Bundles);
 
             //ControllerBuilder.Current.SetControllerFactory(new CustomControllerFactory());
         }

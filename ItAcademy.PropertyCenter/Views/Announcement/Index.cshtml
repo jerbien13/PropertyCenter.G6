@@ -19,13 +19,32 @@
             <th></th>
         </tr>
         @foreach (var item in Model)
-            {
+        {
             <tr>
                 <td>@item.Title</td>
                 <td>@item.Reference</td>
                 <td>@item.Description</td>
-                <td>@Html.ActionLink("Edit", "Edit", "Announcement", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-default" })</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "Announcement", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-default" })
+                    @Html.ActionLink("Detail", "Detail", "Announcement", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-default" })
+                    @*@Html.ActionLink("Delete", "Delete", "Announcement", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-default" })*@
+                    <a class="btn btn-danger" href="#" data-item-id="@item.Id">Delete</a>
+                </td>
             </tr>
         }
     </table>
 </div>
+
+<div id="dialog-confirm" title="Confirm" style="display: none">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>This will delete an announcement. Are you sure?</p>
+</div>
+
+@section styles{
+    @Styles.Render("~/Content/themes/base/css")
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryui")
+
+    <script type="text/javascript" src="~/Scripts/announcementViewModel.js" ></script>
+}

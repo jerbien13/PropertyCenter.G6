@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
+using ItAcademy.PropertyCenter.Repository.Caching;
 using ItAcademy.PropertyCenter.Repository.Contracts;
 
 namespace ItAcademy.PropertyCenter.Repository
@@ -9,9 +10,10 @@ namespace ItAcademy.PropertyCenter.Repository
         private readonly DbContext context;
         private IAnnouncementRepository announcements;
 
-        public UnitOfWork(DbContext context)
+        public UnitOfWork(DbContext context, ICacheProvider cacheProvider)
         {
             this.context = context;
+            this.cacheProvider = cacheProvider;
         }
 
         public IAnnouncementRepository Announcements
@@ -34,13 +36,14 @@ namespace ItAcademy.PropertyCenter.Repository
         {
             get
             {
-                return announcementTypes ?? (announcementTypes = new AnnouncementTypeRepository(context));
+                return announcementTypes ?? (announcementTypes = new AnnouncementTypeRepository(context, cacheProvider));
             }
         }
 
         private bool disposed = false;
         private IAgencyRepository agencies;
         private IAnnouncementTypeRepository announcementTypes;
+        private ICacheProvider cacheProvider;
 
         protected virtual void Dispose(bool disposing)
         {

@@ -8,5 +8,7 @@ namespace ItAcademy.PropertyCenter.Services
     public interface IAgencyService : IServiceBase
     {
         ICollection<Agency> GetAll();
+
+        void AddAgency(Agency agency);
     }
 }

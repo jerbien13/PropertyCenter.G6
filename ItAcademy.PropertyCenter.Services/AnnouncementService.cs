@@ -28,5 +28,12 @@ namespace ItAcademy.PropertyCenter.Services
 
             UnitOfWork.Commit();
         }
+
+        public void DeleteAnnouncement(int id)
+        {
+            UnitOfWork.Announcements.Delete(id);
+
+            UnitOfWork.Commit();
+        }
     }
 }

@@ -12,5 +12,7 @@ namespace ItAcademy.PropertyCenter.Services
 
         void AddAnnouncement(Announcement announcement);
         void UpdateAnnouncement(Announcement announcement);
+
+        void DeleteAnnouncement(int id);
     }
 }

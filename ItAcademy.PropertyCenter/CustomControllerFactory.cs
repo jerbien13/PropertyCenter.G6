@@ -5,6 +5,7 @@ using System.Web.SessionState;
 using ItAcademy.PropertyCenter.Controllers;
 using ItAcademy.PropertyCenter.Domain;
 using ItAcademy.PropertyCenter.Repository;
+using ItAcademy.PropertyCenter.Repository.Caching;
 using ItAcademy.PropertyCenter.Services;
 
 namespace ItAcademy.PropertyCenter
@@ -17,7 +18,7 @@ namespace ItAcademy.PropertyCenter
         {
             if (controllerName == "Home" && requestContext.RouteData.Values["action"] == "Index")
             {
-                announcementService.UnitOfWork = new UnitOfWork(new PropertyCenterDbContext());
+                announcementService.UnitOfWork = new UnitOfWork(new PropertyCenterDbContext(), new DefaultCacheProvider());
 
                 var announcementController = Activator.CreateInstance<AnnouncementController>();
                 announcementController.AnnouncementService = announcementService;
@@ -26,7 +27,7 @@ namespace ItAcademy.PropertyCenter
             }
             else
             {
-                announcementService.UnitOfWork = new UnitOfWork(new PropertyCenterDbContext());
+                announcementService.UnitOfWork = new UnitOfWork(new PropertyCenterDbContext(), new DefaultCacheProvider());
 
                 if (controllerName == "Announcement")
                 {
@@ -34,7 +35,7 @@ namespace ItAcademy.PropertyCenter
                     controller.AnnouncementService = announcementService;
                     return controller;
                 }
-                else 
+                else
                 {
                     var controller = Activator.CreateInstance<HomeController>();
                     controller.AnnouncementService = announcementService;

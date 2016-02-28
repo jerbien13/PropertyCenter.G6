@@ -15,7 +15,7 @@ namespace ItAcademy.PropertyCenter.Controllers
         [Dependency]
         public IAgencyService AgencyService { get; set; }
 
-        // GET: Agency
+        [OutputCache(CacheProfile = "listProfile")]
         public ActionResult Index()
         {
             var agencies = AgencyService.GetAll();
@@ -37,11 +37,12 @@ namespace ItAcademy.PropertyCenter.Controllers
             return PartialView("_CreateAgency", agency);
         }
 
+        [HttpPost]
         public ActionResult Create(Agency agency)
         {
             if (ModelState.IsValid)
             {
-                AgencyService.Add(announcement);
+                AgencyService.AddAgency(agency);
 
                 return AgencyList();
             }

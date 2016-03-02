@@ -40,5 +40,10 @@ namespace ItAcademy.PropertyCenter.Tests.Fakes
         {
             throw new NotImplementedException();
         }
+
+        public void DeleteAnnouncement(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

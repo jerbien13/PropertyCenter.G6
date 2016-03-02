@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using ItAcademy.PropertyCenter.Services.Fakes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ItAcademy.PropertyCenter;
 using ItAcademy.PropertyCenter.Controllers;
 using ItAcademy.PropertyCenter.Entities;
 using ItAcademy.PropertyCenter.Services;
-using ItAcademy.PropertyCenter.Tests.Fakes;
 using Moq;
 
 namespace ItAcademy.PropertyCenter.Tests.Controllers
@@ -35,19 +29,19 @@ namespace ItAcademy.PropertyCenter.Tests.Controllers
         {
             // Arrange
             HomeController controller = new HomeController();
-            IAnnouncementService announcemsntServiceStub = new StubIAnnouncementService()
-            {
-                GetAnnouncements = () =>
-                {
-                    return new List<Announcement>()
-                    {
-                        new Announcement() {Title = "announcement1"},
-                        new Announcement() {Title = "announcement1"}
-                    };
-                }
-            };
+            //IAnnouncementService announcemsntServiceStub = new StubIAnnouncementService()
+            //{
+            //    GetAnnouncements = () =>
+            //    {
+            //        return new List<Announcement>()
+            //        {
+            //            new Announcement() {Title = "announcement1"},
+            //            new Announcement() {Title = "announcement1"}
+            //        };
+            //    }
+            //};
 
-            controller.AnnouncementService = announcemsntServiceStub;
+            //controller.AnnouncementService = announcemsntServiceStub;
             // Act
             ViewResult result = controller.About() as ViewResult;
 

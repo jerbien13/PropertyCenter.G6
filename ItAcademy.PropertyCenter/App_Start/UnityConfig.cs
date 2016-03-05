@@ -2,6 +2,7 @@ using System;
 using System.Data.Entity;
 using ItAcademy.PropertyCenter.Domain;
 using ItAcademy.PropertyCenter.Repository;
+using ItAcademy.PropertyCenter.Repository.Caching;
 using ItAcademy.PropertyCenter.Repository.Contracts;
 using ItAcademy.PropertyCenter.Services;
 using Microsoft.Practices.Unity;
@@ -43,9 +44,12 @@ namespace ItAcademy.PropertyCenter
             // TODO: Register your types here
             container.RegisterType<DbContext, PropertyCenterDbContext>();
             container.RegisterType<IUnitOfWork, UnitOfWork>();
+            container.RegisterInstance<ICacheProvider>(new DefaultCacheProvider());
             container.RegisterType<IAnnouncementService, AnnouncementService>();
             container.RegisterType<IAgencyService, AgencyService>();
             container.RegisterType<IAnnouncementTypeService, AnnouncementTypeService>();
+            container.RegisterType<IAuthenticationService, AuthenticationService>();
+            container.RegisterType<IUserService, UserService>();
         }
     }
 }

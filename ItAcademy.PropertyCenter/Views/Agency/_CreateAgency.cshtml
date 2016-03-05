@@ -1,0 +1,39 @@
+﻿@model ItAcademy.PropertyCenter.Entities.Agency
+
+@{
+    ViewBag.Title = "Create Agency";
+}
+
+<div>
+    @using (Ajax.BeginForm("Create", "Agency", new AjaxOptions() { UpdateTargetId = "agencyRoot", HttpMethod = "POST", InsertionMode = InsertionMode.Replace }))
+    {
+        <div class="form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                                        @Html.EditorFor(m => m.Description, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input class="btn btn-default" type="submit" id="submit" name="submit" value="Valider" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+<div>
+    @Ajax.ActionLink("Retour", "AgencyList", "Agency", new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "agencyRoot", InsertionMode = InsertionMode.Replace })
+</div>

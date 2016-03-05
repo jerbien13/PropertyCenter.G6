@@ -43,7 +43,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,15 +56,20 @@
     <Compile Include="AgencyRepository.cs" />
     <Compile Include="AnnouncementRepository.cs" />
     <Compile Include="AnnouncementTypeRepository.cs" />
+    <Compile Include="Caching\DefaultCacheProvider.cs" />
+    <Compile Include="Contracts\GenericCacheRepository.cs" />
     <Compile Include="Contracts\GenericRepository.cs" />
+    <Compile Include="Contracts\ICacheRepository.cs" />
     <Compile Include="Contracts\IPersistRepository.cs" />
     <Compile Include="Contracts\IReadOnlyRepository.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="IAgencyRepository.cs" />
     <Compile Include="IAnnouncementRepository.cs" />
     <Compile Include="IAnnouncementTypeRepository.cs" />
+    <Compile Include="IUserProfileRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitOfWork.cs" />
+    <Compile Include="UserProfileRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ItAcademy.PropertyCenter.Core\ItAcademy.PropertyCenter.Core.csproj">

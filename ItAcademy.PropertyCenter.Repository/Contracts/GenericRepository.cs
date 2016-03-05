@@ -36,7 +36,7 @@ namespace ItAcademy.PropertyCenter.Repository.Contracts
             }
         }
 
-        public ICollection<T> GetAll()
+        public virtual ICollection<T> GetAll()
         {
             try
             {
@@ -49,7 +49,7 @@ namespace ItAcademy.PropertyCenter.Repository.Contracts
             }
         }
 
-        public ICollection<T> Query(Expression<Func<T, bool>> predicate)
+        public virtual ICollection<T> Query(Expression<Func<T, bool>> predicate)
         {
             try
             {
@@ -62,7 +62,7 @@ namespace ItAcademy.PropertyCenter.Repository.Contracts
             }
         }
 
-        public void Insert(T entity)
+        public virtual void Insert(T entity)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace ItAcademy.PropertyCenter.Repository.Contracts
             }
         }
 
-        public void Update(T entity)
+        public virtual void Update(T entity)
         {
             if (context.Entry(entity).State == EntityState.Detached)
             {
@@ -88,7 +88,7 @@ namespace ItAcademy.PropertyCenter.Repository.Contracts
             context.Entry(entity).State = EntityState.Modified;
         }
 
-        public void Delete(T entity)
+        public virtual void Delete(T entity)
         {
             if (context.Entry(entity).State == EntityState.Detached)
             {
@@ -98,7 +98,7 @@ namespace ItAcademy.PropertyCenter.Repository.Contracts
             entitySet.Remove(entity);
         }
 
-        public void Delete(int id)
+        public virtual void Delete(int id)
         {
             T entity = GetById(id);
 

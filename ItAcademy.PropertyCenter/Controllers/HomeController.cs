@@ -5,10 +5,11 @@ using ItAcademy.PropertyCenter.Filters;
 using ItAcademy.PropertyCenter.Models;
 using ItAcademy.PropertyCenter.Services;
 using Microsoft.Practices.Unity;
+using ItAcademy.PropertyCenter.Core;
 
 namespace ItAcademy.PropertyCenter.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : LocalizableController
     {
         [Dependency]
         public IAnnouncementService AnnouncementService { private get; set; }
@@ -20,12 +21,14 @@ namespace ItAcademy.PropertyCenter.Controllers
             base.OnException(filterContext);
         }
 
+         [OutputCache(CacheProfile = "listProfile")]
         public ActionResult Index()
         {
             return View();
         }
 
         //[HandleError(ExceptionType = typeof(ArgumentNullException), View = "AboutError")]
+         [OutputCache(CacheProfile = "listProfile")]
         public ActionResult About()
         {
             //throw new NullReferenceException("Ceci est un message de test");
@@ -36,6 +39,7 @@ namespace ItAcademy.PropertyCenter.Controllers
             return View(announcements);
         }
 
+         [OutputCache(CacheProfile = "listProfile")]
         public ActionResult Contact()
         {
             //throw new ArgumentNullException();

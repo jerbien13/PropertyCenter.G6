@@ -11,6 +11,8 @@ namespace ItAcademy.PropertyCenter.Repository.Contracts
 
         IAnnouncementTypeRepository AnnouncementTypes { get; }
 
+        IUserProfileRepository UserProfiles { get; }
+
         void Commit();
     }
 }

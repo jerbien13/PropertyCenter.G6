@@ -10,5 +10,13 @@ namespace ItAcademy.PropertyCenter.Services
         {
             return UnitOfWork.Agencies.GetAll();
         }
+
+
+        public void AddAgency(Agency agency)
+        {
+            UnitOfWork.Agencies.Insert(agency);
+
+            UnitOfWork.Commit();
+        }
     }
 }

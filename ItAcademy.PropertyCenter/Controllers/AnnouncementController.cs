@@ -3,10 +3,12 @@ using System.Web.Mvc;
 using ItAcademy.PropertyCenter.Entities;
 using ItAcademy.PropertyCenter.Services;
 using Microsoft.Practices.Unity;
+using ItAcademy.PropertyCenter.Core;
 
 namespace ItAcademy.PropertyCenter.Controllers
 {
-    public class AnnouncementController : Controller
+    [Authorize]
+    public class AnnouncementController : LocalizableController
     {
         [Dependency]
         public IAnnouncementService AnnouncementService { private get; set; }
@@ -15,6 +17,7 @@ namespace ItAcademy.PropertyCenter.Controllers
         [Dependency]
         public IAnnouncementTypeService AnnouncementTypeService { private get; set; }
 
+        [OutputCache(CacheProfile = "listProfile")]
         public ActionResult Index()
         {
             var announcements = AnnouncementService.GetAnnouncements();
@@ -85,5 +88,32 @@ namespace ItAcademy.PropertyCenter.Controllers
 
             return View(announcement);
         }
+
+        [OutputCache(CacheProfile = "detailsProfile")]
+        public ActionResult Detail(int id)
+        {
+            if (id == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var announcement = AnnouncementService.GetAnnouncementById(id);
+
+            return View(announcement);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            if (id == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            AnnouncementService.DeleteAnnouncement(id);
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

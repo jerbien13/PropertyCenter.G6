@@ -1,0 +1,24 @@
+﻿@model IEnumerable<ItAcademy.PropertyCenter.Entities.Agency>
+
+<div>
+    <h2>@ViewBag.Title</h2>
+
+    <div>
+        @Ajax.ActionLink("Créer", "Create", "Agency", new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "agencyRoot", InsertionMode = InsertionMode.Replace })
+    </div>
+
+    <table class="table table-hover">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+            </tr>
+        }
+    </table>
+</div>

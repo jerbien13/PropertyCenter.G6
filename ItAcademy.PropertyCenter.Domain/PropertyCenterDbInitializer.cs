@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Data.Entity;
 using ItAcademy.PropertyCenter.Entities;
+using WebMatrix.WebData;
+using System.Web.Security;
+using System.Linq;
 
 namespace ItAcademy.PropertyCenter.Domain
 {
@@ -8,6 +11,31 @@ namespace ItAcademy.PropertyCenter.Domain
     {
         protected override void Seed(PropertyCenterDbContext context)
         {
+            WebSecurity.InitializeDatabaseConnection(PropertyCenterDbContext.ConnectionStringName, "UserProfile", "Id", "UserName", true);
+
+            var roleManager = (SimpleRoleProvider)Roles.Provider;
+            var membership = (SimpleMembershipProvider)Membership.Provider;
+            
+            if (membership.GetUser("admin", false) == null)
+            {
+                membership.CreateUserAndAccount("admin", "admin");
+            }
+
+            if (!roleManager.RoleExists("Administrator"))
+            {
+                roleManager.CreateRole("Administrator");
+            }
+
+            if (!roleManager.RoleExists("Guest"))
+            {
+                roleManager.CreateRole("Guest");
+            }
+
+            if (!roleManager.GetRolesForUser("admin").Contains("Administrator"))
+            {
+                roleManager.AddUsersToRoles(new[] { "admin" }, new[] { "Administrator" });
+            }
+
             AnnouncementType announcementType = new AnnouncementType()
             {
                 Name = "Vente Terrain", Code = "TR"

@@ -3,10 +3,12 @@ using System.Web.Mvc;
 using ItAcademy.PropertyCenter.Entities;
 using ItAcademy.PropertyCenter.Services;
 using Microsoft.Practices.Unity;
+using ItAcademy.PropertyCenter.Core;
 
 namespace ItAcademy.PropertyCenter.Controllers
 {
-    public class AnnouncementController : Controller
+    [Authorize]
+    public class AnnouncementController : LocalizableController
     {
         [Dependency]
         public IAnnouncementService AnnouncementService { private get; set; }

@@ -5,10 +5,11 @@ using ItAcademy.PropertyCenter.Filters;
 using ItAcademy.PropertyCenter.Models;
 using ItAcademy.PropertyCenter.Services;
 using Microsoft.Practices.Unity;
+using ItAcademy.PropertyCenter.Core;
 
 namespace ItAcademy.PropertyCenter.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : LocalizableController
     {
         [Dependency]
         public IAnnouncementService AnnouncementService { private get; set; }

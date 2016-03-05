@@ -43,6 +43,8 @@
             </div>
             <div class="collapse navbar-collapse">
                 @Html.MvcSiteMap().Menu("BootstrapMenuHelperModel")
+                @Html.Partial("_CultureSwitcher")
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </nav>
@@ -53,13 +55,13 @@
         </div>
         <hr />
         @*<div>*@
-            <div>
-                @RenderBody()
-            </div>
-            @*<div class="col-md-2">
-                @RenderSection("customView", false)
-            </div>
-        </div>*@
+        <div>
+            @RenderBody()
+        </div>
+        @*<div class="col-md-2">
+                    @RenderSection("customView", false)
+                </div>
+            </div>*@
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>

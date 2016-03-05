@@ -11,6 +11,7 @@ namespace ItAcademy.PropertyCenter
             filters.Add(new HandleErrorAttribute());
             filters.Add(new HandleErrorAttribute() { ExceptionType = typeof(ArgumentNullException), View = "AboutError" });
             filters.Add(new MethodCallLogAttribute());
+            //filters.Add(new AuthorizeAttribute());
         }
     }
 }

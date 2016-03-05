@@ -40,10 +40,19 @@ namespace ItAcademy.PropertyCenter.Repository
             }
         }
 
+        public IUserProfileRepository UserProfiles
+        {
+            get
+            {
+                return userProfiles ?? (userProfiles = new UserProfileRepository(context));
+            }
+        }
+
         private bool disposed = false;
         private IAgencyRepository agencies;
         private IAnnouncementTypeRepository announcementTypes;
         private ICacheProvider cacheProvider;
+        private IUserProfileRepository userProfiles;
 
         protected virtual void Dispose(bool disposing)
         {

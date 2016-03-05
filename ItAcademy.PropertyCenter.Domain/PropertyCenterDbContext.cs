@@ -5,9 +5,11 @@ namespace ItAcademy.PropertyCenter.Domain
 {
     public class PropertyCenterDbContext : DbContext
     {
-        public PropertyCenterDbContext()
+        public const string ConnectionStringName = "PropertyCenterDbContext";
+
+        public PropertyCenterDbContext() : base(ConnectionStringName)
         {
-            Database.SetInitializer(new PropertyCenterDbInitializer());
+            
         }
 
         public DbSet<Announcement> Announcements { get; set; }
@@ -15,5 +17,7 @@ namespace ItAcademy.PropertyCenter.Domain
         public DbSet<Agency> Agencies { get; set; }
 
         public DbSet<AnnouncementType> AnnouncementTypes { get; set; }
+
+        public DbSet<UserProfile> UserProfiles { get; set; }
     }
 }

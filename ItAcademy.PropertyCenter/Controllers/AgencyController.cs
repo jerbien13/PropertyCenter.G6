@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.UI.WebControls.WebParts;
+﻿using System.Web.Mvc;
 using ItAcademy.PropertyCenter.Entities;
 using ItAcademy.PropertyCenter.Services;
 using Microsoft.Practices.Unity;
+using ItAcademy.PropertyCenter.Core;
 
 namespace ItAcademy.PropertyCenter.Controllers
 {
-    public class AgencyController : Controller
+    [Authorize(Roles = "Administrator,Guest")]
+    public class AgencyController : LocalizableController
     {
         [Dependency]
         public IAgencyService AgencyService { get; set; }

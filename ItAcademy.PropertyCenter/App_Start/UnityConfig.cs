@@ -48,6 +48,8 @@ namespace ItAcademy.PropertyCenter
             container.RegisterType<IAnnouncementService, AnnouncementService>();
             container.RegisterType<IAgencyService, AgencyService>();
             container.RegisterType<IAnnouncementTypeService, AnnouncementTypeService>();
+            container.RegisterType<IAuthenticationService, AuthenticationService>();
+            container.RegisterType<IUserService, UserService>();
         }
     }
 }
